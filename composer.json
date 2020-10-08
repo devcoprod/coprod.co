@@ -1,4 +1,6 @@
 {
+    "name": "devcoprod/coprod.co",
+    "description": "devcoprod",
     "type": "project",
     "license": "proprietary",
     "require": {
