@@ -184,7 +184,7 @@
                           <div class="media align-items-center">
                             <img class="navbar-promo-icon" src="/img/svg/icons/icon-5.svg" alt="SVG">
                             <div class="media-body">
-                              <span class="navbar-promo-title">Comptbilité</span>
+                              <span class="navbar-promo-title">Comptabilité</span>
                               <span class="navbar-promo-text">Coming soon...</span>
                             </div>
                           </div>
@@ -293,9 +293,20 @@
 
             <!-- Button -->
               {% if app.user %}
-              <li class="navbar-nav-last-item">
-                <a class="btn btn-sm btn-soft-navy transition-3d-hover" href="{{ path('app_logout') }}">déconnexion</a>
+              {# <li class="navbar-nav-last-item">
+                <a class="btn btn-sm btn-soft-navy transition-3d-hover" href="{{ path('app_logout') }}">{{ app.user.email }}</a>
+              </li> #}
+
+              <li class="navbar-nav-last-item dropdown">
+                <a id="UserDropdownMenu" class="nav-link dropdown-toggle btn btn-sm btn-soft-navy " href="#"role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ app.user.email }}</a>
+                {# <img src="{{ vich_uploader_asset(app.user, 'imageFile')}}" alt="avatar" style="width: 30px; height:auto;"> #}
+                <div class="dropdown-menu" aria-labelledby="UserDropdownMenu">
+                  <a class="dropdown-item" href="{{ path('dashboard') }}"><i class="fas fa-user"></i> Mon compte</a>
+                  <a class="dropdown-item" href="{{ path('app_logout') }}"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
+                </div>
               </li>
+              
+
               {% else %}
               <li class="navbar-nav-last-item">
                 <a class="btn btn-sm btn-primary transition-3d-hover" href="{{ path('app_login') }}">connexion</a>
