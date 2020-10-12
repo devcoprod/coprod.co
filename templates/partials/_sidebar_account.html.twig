@@ -1,0 +1,122 @@
+          <!-- Navbar -->
+          <div class="navbar-expand-lg navbar-expand-lg-collapse-block navbar-light">
+            <div id="sidebarNav" class="collapse navbar-collapse navbar-vertical">
+              <!-- Card -->
+              <div class="card mb-5">
+                <div class="card-body">
+                  <!-- Avatar -->
+                  <div class="d-none d-lg-block text-center mb-5">
+                    <div class="avatar avatar-xxl avatar-circle mb-3">
+                      <img class="avatar-img" src="/img/160x160/img22.jpg" alt="Image Description">
+                      <img class="avatar-status avatar-lg-status" src="/img/svg/illustrations/top-vendor.svg" alt="Image Description" data-toggle="tooltip" data-placement="top" title="Verified user">
+                    </div>
+
+                    <h4 class="card-title">
+                        {% if app.user.isOrganization %}
+                        {{ app.user.fullname }}
+                        {% else %}
+                        {% if app.user.firstname %}{{ app.user.firstname }}{% endif %} {% if app.user.lastname %}{{ app.user.lastname }}{% endif %}
+                        {% endif %}
+                    </h4>
+                    <p class="card-text font-size-1">{{ app.user.email }}</p>
+                  </div>
+                  <!-- End Avatar -->
+
+                  <h6 class="text-cap small">Mon compte</h6>
+
+                  <!-- List -->
+                  <ul class="nav nav-sub nav-sm nav-tabs nav-list-y-2 mb-4">
+                    <li class="nav-item">
+                      <a class="nav-link {% if app.request.get('_route') == 'personal_info' %}active{% endif %}" href="{{ path('personal_info') }}">
+                        <i class="fas fa-id-card nav-icon"></i>
+                        Infos personnelles
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link {% if app.request.get('_route') == 'change_password' %}active{% endif %}" href="{{ path('change_password') }}">
+                        <i class="fas fa-key nav-icon"></i>
+                        Mot de passe
+                      </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                      <a class="nav-link {% if app.request.get('_route') == 'my_settings' %}active{% endif %}" href="{{ path('my_settings') }}">
+                        <i class="fas fa-cogs nav-icon"></i>
+                        Mes paramètres
+                      </a>
+                    </li>
+                  </ul>
+                  <!-- End List -->
+
+                  <h6 class="text-cap small">Mon activité</h6>
+
+                  <!-- List -->
+                  <ul class="nav nav-sub nav-sm nav-tabs nav-list-y-2 mb-4">
+                    <li class="nav-item">
+                      <a class="nav-link" href="orders.html">
+                        <i class="fas fa-file-alt nav-icon"></i>
+                        Mes devis
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="orders.html">
+                        <i class="fas fa-address-book nav-icon"></i>
+                        Mes clients
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="wishlist.html">
+                        <i class="fas fa-book-open nav-icon"></i>
+                        Mes services
+                        <span class="badge badge-soft-navy badge-pill nav-link-badge">2</span>
+                      </a>
+                    </li>
+                  </ul>
+                  <!-- End List -->
+
+                  <h6 class="text-cap small">Ma comptabilité</h6>
+
+                  <!-- List -->
+                  <ul class="nav nav-sub nav-sm nav-tabs nav-list-y-2">
+                    <li class="nav-item">
+                      <a class="nav-link" href="billing.html">
+                        <i class="fas fa-credit-card nav-icon"></i>
+                        Plans &amp; payment
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="address.html">
+                        <i class="fas fa-map-marker-alt nav-icon"></i>
+                        Address
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="teams.html">
+                        <i class="fas fa-users nav-icon"></i>
+                        Teams
+                        <span class="badge badge-soft-navy badge-pill nav-link-badge">+2 new users</span>
+                      </a>
+                    </li>
+                  </ul>
+                  <!-- End List -->
+
+                  <div class="d-lg-none">
+                    <div class="dropdown-divider"></div>
+
+                    <!-- List -->
+                    <ul class="nav nav-sub nav-sm nav-tabs nav-list-y-2">
+                      <li class="nav-item">
+                        <a class="nav-link text-primary" href="#">
+                          <i class="fas fa-sign-out-alt nav-icon"></i>
+                          Log out
+                        </a>
+                      </li>
+                    </ul>
+                    <!-- End List -->
+                  </div>
+                </div>
+              </div>
+              <!-- End Card -->
+            </div>
+          </div>
+          <!-- End Navbar -->

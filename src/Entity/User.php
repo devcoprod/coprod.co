@@ -48,6 +48,86 @@ class User implements UserInterface
      */
     private $userRoles;
 
+    /**
+     * @ORM\Column(type="string", length=50, nullable=true)
+     */
+    private $firstname;
+
+    /**
+     * @ORM\Column(type="string", length=50, nullable=true)
+     */
+    private $lastname;
+
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $isOrganization;
+
+    /**
+     * @ORM\Column(type="string", length=150, nullable=true)
+     */
+    private $organizationName;
+
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $isAssociate;
+
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $isWorker;
+
+    /**
+     * @ORM\Column(type="date", nullable=true)
+     */
+    private $bornAt;
+
+    /**
+     * @ORM\Column(type="string", length=150, nullable=true)
+     */
+    private $bornCity;
+
+    /**
+     * @ORM\Column(type="string", length=2, nullable=true)
+     */
+    private $bornCounty;
+
+    /**
+     * @ORM\Column(type="string", length=150, nullable=true)
+     */
+    private $bornCountry;
+
+    /**
+     * @ORM\Column(type="string", length=150, nullable=true)
+     */
+    private $nationality;
+
+    /**
+     * @ORM\Column(type="string", length=15, nullable=true)
+     */
+    private $nirpp;
+
+    /**
+     * @ORM\Column(type="string", length=1, nullable=true)
+     */
+    private $genre;
+
+    /**
+     * @ORM\Column(type="string", length=9, nullable=true)
+     */
+    private $siren;
+
+    /**
+     * @ORM\Column(type="string", length=14, nullable=true)
+     */
+    private $siret;
+
+    /**
+     * @ORM\Column(type="string", length=100, nullable=true)
+     */
+    private $rcs;
+
     public function __construct()
     {
         $this->userRoles = new ArrayCollection();
@@ -170,6 +250,198 @@ class User implements UserInterface
             $this->userRoles->removeElement($userRole);
             $userRole->removeUser($this);
         }
+
+        return $this;
+    }
+
+    public function getFirstname(): ?string
+    {
+        return $this->firstname;
+    }
+
+    public function setFirstname(?string $firstname): self
+    {
+        $this->firstname = $firstname;
+
+        return $this;
+    }
+
+    public function getLastname(): ?string
+    {
+        return $this->lastname;
+    }
+
+    public function setLastname(?string $lastname): self
+    {
+        $this->lastname = $lastname;
+
+        return $this;
+    }
+
+    public function getIsOrganization(): ?bool
+    {
+        return $this->isOrganization;
+    }
+
+    public function setIsOrganization(?bool $isOrganization): self
+    {
+        $this->isOrganization = $isOrganization;
+
+        return $this;
+    }
+
+    public function getFullname(): ?string
+    {
+        return $this->organizationName;
+    }
+
+    public function setFullname(?string $organizationName): self
+    {
+        $this->organizationName = $organizationName;
+
+        return $this;
+    }
+
+    public function getIsAssociate(): ?bool
+    {
+        return $this->isAssociate;
+    }
+
+    public function setIsAssociate(?bool $isAssociate): self
+    {
+        $this->isAssociate = $isAssociate;
+
+        return $this;
+    }
+
+    public function getIsWorker(): ?bool
+    {
+        return $this->isWorker;
+    }
+
+    public function setIsWorker(?bool $isWorker): self
+    {
+        $this->isWorker = $isWorker;
+
+        return $this;
+    }
+
+    public function getBornAt(): ?\DateTimeInterface
+    {
+        return $this->bornAt;
+    }
+
+    public function setBornAt(?\DateTimeInterface $bornAt): self
+    {
+        $this->bornAt = $bornAt;
+
+        return $this;
+    }
+
+    public function getBornCity(): ?string
+    {
+        return $this->bornCity;
+    }
+
+    public function setBornCity(?string $bornCity): self
+    {
+        $this->bornCity = $bornCity;
+
+        return $this;
+    }
+
+    public function getBornCounty(): ?string
+    {
+        return $this->bornCounty;
+    }
+
+    public function setBornCounty(?string $bornCounty): self
+    {
+        $this->bornCounty = $bornCounty;
+
+        return $this;
+    }
+
+    public function getBornCountry(): ?string
+    {
+        return $this->bornCountry;
+    }
+
+    public function setBornCountry(?string $bornCountry): self
+    {
+        $this->bornCountry = $bornCountry;
+
+        return $this;
+    }
+
+    public function getNationality(): ?string
+    {
+        return $this->nationality;
+    }
+
+    public function setNationality(?string $nationality): self
+    {
+        $this->nationality = $nationality;
+
+        return $this;
+    }
+
+    public function getNirpp(): ?string
+    {
+        return $this->nirpp;
+    }
+
+    public function setNirpp(?string $nirpp): self
+    {
+        $this->nirpp = $nirpp;
+
+        return $this;
+    }
+
+    public function getGenre(): ?string
+    {
+        return $this->genre;
+    }
+
+    public function setGenre(?string $genre): self
+    {
+        $this->genre = $genre;
+
+        return $this;
+    }
+
+    public function getSiren(): ?string
+    {
+        return $this->siren;
+    }
+
+    public function setSiren(?string $siren): self
+    {
+        $this->siren = $siren;
+
+        return $this;
+    }
+
+    public function getSiret(): ?string
+    {
+        return $this->siret;
+    }
+
+    public function setSiret(?string $siret): self
+    {
+        $this->siret = $siret;
+
+        return $this;
+    }
+
+    public function getRcs(): ?string
+    {
+        return $this->rcs;
+    }
+
+    public function setRcs(?string $rcs): self
+    {
+        $this->rcs = $rcs;
 
         return $this;
     }

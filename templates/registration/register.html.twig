@@ -1,21 +1,43 @@
-{% extends 'base.html.twig' %}
+{% extends 'base_security.html.twig' %}
 
-{% block title %}Register{% endblock %}
+{% block title %}Inscription{% endblock %}
 
 {% block body %}
     {% for flashError in app.flashes('verify_email_error') %}
         <div class="alert alert-danger" role="alert">{{ flashError }}</div>
     {% endfor %}
 
-    <h1>Register</h1>
+    <div class="mb-5 mb-md-7">
+        <h1 class="h2">Bienvenue !</h1>
+        <p>Créez un compte pour nous rejoindre</p>
+    </div>
 
     {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
-
-        <button type="submit" class="btn">Register</button>
+        
+        <div class="js-form-message form-group">
+            {{ form_label(registrationForm.email, 'Adresse email') }}
+            {{ form_widget(registrationForm.email) }}
+        </div> 
+        
+        <div class="js-form-message form-group">
+            {{ form_label(registrationForm.plainPassword, 'Choisissez un mot de passe') }}
+            {{ form_widget(registrationForm.plainPassword) }}
+        </div>
+        
+        <div class="js-form-message mb-5">
+            <div class="custom-control custom-checkbox d-flex align-items-center text-muted">
+                {{ form_row(registrationForm.agreeTerms) }}
+            </div>
+        </div>
+        
+        <div class="row align-items-center mb-5">
+            <div class="col-sm-6 mb-3 mb-sm-0">
+                <a class="font-size-1 font-weight-bold" href="{{ path('app_login') }}">J'ai déjà un compte</a>
+            </div>
+            <div class="col-sm-6 text-sm-right">
+                <button type="submit" class="btn btn-primary transition-3d-hover">S'inscrire</button>
+            </div>
+        </div>
+        
     {{ form_end(registrationForm) }}
 {% endblock %}

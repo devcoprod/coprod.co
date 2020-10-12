@@ -1,9 +1,10 @@
-{% extends 'base.html.twig' %}
+{% extends 'base_security.html.twig' %}
 
-{% block title %}Log in!{% endblock %}
+{% block title %}Connexion | {% endblock %}
 
 {% block body %}
-<form method="post">
+
+<form class="js-validate" method="post">
     {% if error %}
         <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
@@ -14,11 +15,25 @@
         </div>
     {% endif %}
 
-    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-    <label for="inputEmail">Email</label>
-    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" required autofocus>
-    <label for="inputPassword">Password</label>
-    <input type="password" name="password" id="inputPassword" class="form-control" required>
+    <div class="mb-5 mb-md-7">
+        <h1 class="h2">Connexion</h1>
+        <p>Connectez-vous pour accéder à votre compte.</p>
+    </div>
+    
+    <div class="js-form-message form-group">
+        <label class="input-label" for="signinSrEmail">Adresse email</label>
+        <input type="email" value="{{ last_username }}" class="form-control" name="email" id="signinSrEmail" tabindex="1" placeholder="Adresse email" aria-label="Adresse email" required data-msg="Please enter a valid email address.">
+    </div>
+    
+    <div class="js-form-message form-group">
+        <label class="input-label" for="signinSrPassword" tabindex="0">
+            <span class="d-flex justify-content-between align-items-center">
+                Mot de passe
+                <a class="link-underline text-capitalize font-weight-normal" href="{{ path('app_forgot_password_request') }}">Mot de passe oublié ?</a>
+            </span>
+        </label>
+        <input type="password" name="password" class="form-control" name="password" id="signinSrPassword" tabindex="2" placeholder="********" aria-label="********" required data-msg="Your password is invalid. Please try again.">
+    </div>
 
     <input type="hidden" name="_csrf_token"
            value="{{ csrf_token('authenticate') }}"
@@ -35,8 +50,15 @@
         </div>
     #}
 
-    <button class="btn btn-lg btn-primary" type="submit">
-        Sign in
-    </button>
+    <div class="row align-items-center mb-5">
+        <div class="col-sm-6 mb-3 mb-sm-0">
+            <span class="font-size-1 text-muted">Pas de compte ?</span>
+            <a class="font-size-1 font-weight-bold" href="{{ path('app_register') }}">S'inscrire</a>
+        </div>
+        <div class="col-sm-6 text-sm-right">
+            <button type="submit" class="btn btn-primary transition-3d-hover">Connexion</button>
+        </div>
+    </div>
+    
 </form>
 {% endblock %}

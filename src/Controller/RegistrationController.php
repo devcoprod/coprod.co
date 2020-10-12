@@ -26,7 +26,7 @@ class RegistrationController extends AbstractController
     }
 
     /**
-     * @Route("/register", name="app_register")
+     * @Route("/inscription", name="app_register")
      */
     public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder, GuardAuthenticatorHandler $guardHandler, LoginFormAuthenticator $authenticator): Response
     {
@@ -50,9 +50,9 @@ class RegistrationController extends AbstractController
             // generate a signed url and email it to the user
             $this->emailVerifier->sendEmailConfirmation('app_verify_email', $user,
                 (new TemplatedEmail())
-                    ->from(new Address('mailer@coprod.co', 'Vérification COPROD.CO'))
+                    ->from(new Address('no-reply@coprod.co', 'Vérification COPROD.CO'))
                     ->to($user->getEmail())
-                    ->subject('Please Confirm your Email')
+                    ->subject('Merci de bien vouloir confirmer votre inscription')
                     ->htmlTemplate('registration/confirmation_email.html.twig')
             );
             // do anything else you need here, like send an email
@@ -90,6 +90,6 @@ class RegistrationController extends AbstractController
         $this->addFlash('success', 'Your email address has been verified.');
 
         // return $this->redirectToRoute('app_register');
-        return $this->redirectToRoute('dashboard');
+        return $this->redirectToRoute('personal_info');
     }
 }

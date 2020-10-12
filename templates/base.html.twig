@@ -1,84 +1,26 @@
 <!DOCTYPE html>
 <html lang="fr_FR">
     <head>
-        <meta charset="UTF-8">
-		<link rel="icon" type="image/jpg" href="/running_blue.jpg" />
+        <title>
+        {% block title %}{% endblock %}
+        {% if app.request.get('_route') == 'front' %}
+        COPROD.CO | Start-Up d'Utilité Sociale
+        {% else %} | COPROD.CO{% endif %}
+        </title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <title>Coprod - {% block title %}{% endblock %}</title>
-
-		{{ encore_entry_link_tags('app') }}
-		<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
-		{% block stylesheets %}{% endblock %}
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        {{ encore_entry_link_tags('app') }}
+        <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+        {% block stylesheets %}{% endblock %}
 
     </head>
     <body>
-		<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-			<a class="navbar-brand" href="{{ path('front') }}">Coprod.co</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-
-			<div class="collapse navbar-collapse" id="navbarColor02">
-				<ul class="navbar-nav mr-auto">
-					<li class="nav-item active">
-						<a class="nav-link btn btn-primary mx-1" href="{{ path('front') }}">Accueil <span class="sr-only">(current)</span></a>
-					</li>
-					{# <li class="nav-item">
-						<a class="nav-link btn btn-primary mx-1" href="{{ path('author_index') }}">Les auteur.e.s</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link btn btn-primary mx-1" href="{{ path('book_index') }}">Les oeuvres</a>
-					</li> #}
-					<li class="nav-item">
-						<a class="nav-link btn btn-primary mx-1" href="#">A propos</a>
-					</li>
-				</ul>
-
-				{# <form class="form-inline my-2 my-lg-0">
-					<input class="form-control mr-sm-2" type="text" placeholder="Search">
-					<button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-				</form> #}
-
-				<ul class="navbar-nav ml-auto">
-
-				{% if is_granted('IS_AUTHENTICATED_FULLY') %}
-				<li class="nav-item dropdown active" {# style="float:right;"  #}>
-					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						{{ app.user.email }}
-						{# <img src="{{ vich_uploader_asset(app.user, 'imageFile')}}" alt="avatar" style="width: 30px; height:auto;"> #}
-					</a>
-					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-						{# <a class="dropdown-item" href="{{ path('user_show', { slug: app.user.slug, id: app.user.id }) }}"><i class="fas fa-user"></i> Mes informations</a>
-						<a class="dropdown-item" href="{{ path('admin_account_dashboard') }}"><i class="fas fa-chess" aria-hidden="true"></i> Admin dashboard</a> #}
-						<a class="dropdown-item" href="{{ path('app_logout') }}"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
-						{# <a class="dropdown-item" href="{{ path('user_updatepwd') }}"><i class="fas fa-user-lock"></i> Modif mot de passe</a> #}
-					</div>
-				</li>
-
-				{% else %}
-				{# <li class="nav-item">
-					<a href="{{ path('app_register') }}" class="{{ encore_entry_link_tags('app') }}nav-link" role="button" aria-haspopup="true" aria-expanded="false">
-						<i class="fas fa-user-edit"></i>
-						Inscription
-					</a>
-				</li> #}
-				<li class="nav-item">
-					<a href="{{ path('app_login') }}" class="nav-link" role="button" aria-haspopup="true" aria-expanded="false">
-						<i class="fas fa-sign-in-alt"></i>
-						Connexion
-					</a>
-				</li>
-				{% endif %}
-
-				</ul>
-
-			</div>
-		</nav>
-
-		<div class="container mt-1" style="padding-top: 55px">{{ include('partials/_flash_messages.html.twig') }}</div>
-
+        {% include 'partials/_header.html.twig' %}
+        <main id="content" role="main">
         {% block body %}{% endblock %}
-
+        </main>
 		{% include 'partials/_footer.html.twig' %}
 
 		<script src="https://kit.fontawesome.com/bcba0a714a.js" crossorigin="anonymous"></script>
