@@ -22,16 +22,16 @@
                             <div class="d-none d-lg-block">
                                 <h1 class="h2 text-white">{{ page_title }}</h1>
                             </div>
+                            {% if app.request.get('_route') == 'dashboard' %}
+                            {% else %}
                             <ol class="breadcrumb breadcrumb-light breadcrumb-no-gutter mb-0">
                                 <li class="breadcrumb-item">
-                                    <a href="{{ path('dashboard') }}">
-                                        Tableau de bord
+                                    <a class="text-white" href="{{ path('dashboard') }}">
+                                        <i class="fas fa-arrow-left text-white"></i> retour au tableau de bord
                                     </a>
                                 </li>
-                                <li class="breadcrumb-item active" aria-current="page">
-                                    Infos personnelles
-                                </li>
                             </ol>
+                            {% endif %}
                         </div>
                         <div class="col-auto">
                             <div class="d-none d-lg-block">

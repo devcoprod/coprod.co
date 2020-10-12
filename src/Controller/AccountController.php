@@ -39,7 +39,7 @@ class AccountController extends AbstractController
         $title = "Mot de passe";
         return $this->render('account/index.html.twig', [
             'controller_name' => 'AccountController',
-            'page_title' => 'Mot de passe',
+            'page_title' => 'Modification du mot de passe',
         ]);
     }
     

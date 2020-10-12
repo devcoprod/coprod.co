@@ -2,10 +2,9 @@
 <html lang="fr_FR">
     <head>
         <title>
-        {% block title %}{% endblock %}
         {% if app.request.get('_route') == 'front' %}
         COPROD.CO | Start-Up d'Utilité Sociale
-        {% else %} | COPROD.CO{% endif %}
+        {% else %}{{ page_title }} | COPROD.CO SCIC-SAS{% endif %}
         </title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
