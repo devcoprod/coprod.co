@@ -59,6 +59,13 @@ class User implements UserInterface
     private $lastname;
 
     /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $avatar;
+
+
+
+    /**
      * @ORM\Column(type="boolean", nullable=true)
      */
     private $isOrganization;
@@ -111,7 +118,7 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="string", length=1, nullable=true)
      */
-    private $genre;
+    private $gender;
 
     /**
      * @ORM\Column(type="string", length=9, nullable=true)
@@ -278,6 +285,18 @@ class User implements UserInterface
         return $this;
     }
 
+    public function getAvatar(): ?string
+    {
+        return $this->avatar;
+    }
+
+    public function setAvatar(?string $avatar): self
+    {
+        $this->avatar = $avatar;
+
+        return $this;
+    }
+
     public function getIsOrganization(): ?bool
     {
         return $this->isOrganization;
@@ -398,14 +417,14 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getGenre(): ?string
+    public function getGender(): ?string
     {
-        return $this->genre;
+        return $this->gender;
     }
 
-    public function setGenre(?string $genre): self
+    public function setGender(?string $gender): self
     {
-        $this->genre = $genre;
+        $this->gender = $gender;
 
         return $this;
     }

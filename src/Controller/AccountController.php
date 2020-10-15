@@ -13,6 +13,8 @@ class AccountController extends AbstractController
     public function index()
     {
         $title = "Tableau de bord";
+
+        
         return $this->render('account/index.html.twig', [
             'controller_name' => 'AccountController',
             'page_title' => 'Tableau de bord',
@@ -25,9 +27,14 @@ class AccountController extends AbstractController
     public function personal_info()
     {
         $title = "Informations personnelles";
+
+        $user = $this->getUser();
+        
+
+
         return $this->render('account/personal_info.html.twig', [
             'controller_name' => 'AccountController',
-            'page_title' => 'Informations personnelles',
+            'page_title' => $title,
         ]);
     }
     
