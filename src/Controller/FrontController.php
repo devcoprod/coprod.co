@@ -25,7 +25,7 @@ class FrontController extends AbstractController
     {
         return $this->render('front/esa.html.twig', [
             'controller_name' => 'FrontController',
-            'page_title' => 'Entrepreneur salarié associé au sein d\'une coopérative d\'activité et d\'emploi',
+            'page_title' => 'Entrepreneur salarié associé au sein d\'une coopérative d\'activité et d\'emploi pas comme les autres',
         ]);
     }
     
@@ -95,23 +95,24 @@ class FrontController extends AbstractController
         ]);
     }
     
-    /**
-     * @Route("/mentions-legales", name="legacy")
-     */
-    public function legacy()
-    {
-        return $this->render('front/legacy.html.twig', [
-            'controller_name' => 'FrontController',
-            'page_title' => '',
-        ]);
-    }
     
     /**
      * @Route("/questions-frequentes", name="faq")
      */
     public function faq()
     {
-        return $this->render('front/faq.html.twig', [
+        return $this->render('front/index.html.twig', [
+            'controller_name' => 'FrontController',
+            'page_title' => 'titre',
+        ]);
+    }
+    
+    /**
+     * @Route("/mentions-legales", name="legacy")
+     */
+    public function legacy()
+    {
+        return $this->render('front/legacy.html.twig', [
             'controller_name' => 'FrontController',
             'page_title' => '',
         ]);
