@@ -37,7 +37,7 @@ class AccountController extends AbstractController
     public function change_password()
     {
         $title = "Mot de passe";
-        return $this->render('account/index.html.twig', [
+        return $this->render('account/change_password.html.twig', [
             'controller_name' => 'AccountController',
             'page_title' => 'Modification du mot de passe',
         ]);
