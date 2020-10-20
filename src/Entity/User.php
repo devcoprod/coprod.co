@@ -309,12 +309,12 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getFullname(): ?string
+    public function getOrganizationName(): ?string
     {
         return $this->organizationName;
     }
 
-    public function setFullname(?string $organizationName): self
+    public function setOrganizationName(?string $organizationName): self
     {
         $this->organizationName = $organizationName;
 

@@ -24,10 +24,13 @@ Encore
      * and one CSS file (e.g. app.css) if your JavaScript imports CSS.
      */
     .addEntry('app', './assets/app.js')
-    .addEntry('hs-core', './assets/js/hs.core.js')
-    .addEntry('hs-validation', './assets/js/hs.validation.js')
-    .addEntry('hs-select2', './assets/js/hs.select2.js')
-    .addEntry('hs-clipboard', './assets/js/hs.clipboard.js')
+    // .addEntry('front', './assets/front-core.js')
+
+    // .addEntry('hs-core', './assets/js/hs.core.js')
+    // .addEntry('hs-validation', './assets/js/hs.validation.js')
+    // .addEntry('hs-select2', './assets/js/hs.select2.js')
+    // .addEntry('hs-clipboard', './assets/js/hs.clipboard.js')
+    
     //.addEntry('page1', './assets/page1.js')
     //.addEntry('page2', './assets/page2.js')
 
@@ -36,7 +39,8 @@ Encore
 
     // will require an extra script tag for runtime.js
     // but, you probably want this, unless you're building a single-page app
-    .enableSingleRuntimeChunk()
+    // .enableSingleRuntimeChunk()
+    .disableSingleRuntimeChunk()
 
     /*
      * FEATURE CONFIG
@@ -60,6 +64,24 @@ Encore
     // enables Sass/SCSS support
     .enableSassLoader()
 
+    // copy image files
+    .copyFiles({
+        from: './assets/images',
+        to: 'images/[path][name].[ext]'
+    })
+
+    .copyFiles({
+        from: './assets/front/assets/img',
+        to: 'images/[path][name].[ext]'
+    })
+        .copyFiles({
+        from: './assets/front/assets/svg',
+        to: 'images/svg/[path][name].[ext]'
+    })
+    .copyFiles({
+        from: './assets/front/assets/vendor/flag-icon-css/flags',
+        to: 'images/vendor/flag-icon-css/flags/[path][name].[ext]'
+    })
     // uncomment if you use TypeScript
     //.enableTypeScriptLoader()
 
@@ -68,7 +90,7 @@ Encore
     //.enableIntegrityHashes(Encore.isProduction())
 
     // uncomment if you're having problems with a jQuery plugin
-    //.autoProvidejQuery()
+    // .autoProvidejQuery()
 
     // uncomment if you use API Platform Admin (composer req api-admin)
     //.enableReactPreset()

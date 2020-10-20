@@ -5,6 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   {% block stylesheets %}
+  
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
   {{ encore_entry_link_tags('app') }}
   {% endblock %}
@@ -18,20 +19,20 @@
         <nav class="navbar navbar-expand header-navbar">
           <!-- White Logo -->
           <a class="d-none d-lg-flex navbar-brand header-navbar-brand" href="{{ path('front') }}" aria-label="Front">
-            <img src="../../assets/svg/logos/logo-white.svg" alt="Logo">
+            <img src="{{ asset('build/images/svg/logos/logo-white.svg') }}" alt="Logo">
           </a>
           <!-- End White Logo -->
 
           <!-- Default Logo -->
           <a class="d-flex d-lg-none navbar-brand header-navbar-brand header-navbar-brand-collapsed" href="/" aria-label="Front">
-            <img src="../../assets/svg/logos/logo.svg" alt="Logo">
+            <img src="build/images/svg/logos/logo.svg" alt="Logo">
           </a>
           <!-- End Default Logo -->
 
           <!-- Button -->
           <div class="ml-auto">
             <a class="btn btn-sm btn-link text-body" href="{{ path('front') }}">
-              <i class="fas fa-angle-left fa-sm mr-1"></i> Retour à l'accueil
+              <i class="fa fa-angle-left fa-sm mr-1"></i> Retour à l'accueil
             </a>
           </div>
           <!-- End Button -->
@@ -46,7 +47,7 @@
   <main id="content" role="main">
     <!-- Form -->
     <div class="d-flex align-items-center position-relative vh-lg-100">
-      <div class="col-lg-5 col-xl-4 d-none d-lg-flex align-items-center bg-navy vh-lg-100 px-0" style="background-image: url(../../assets/svg/components/abstract-shapes-20.svg);">
+      <div class="col-lg-5 col-xl-4 d-none d-lg-flex align-items-center bg-navy vh-lg-100 px-0" style="background-image: url('/build/images/bg-shapes/bg1.png');">
         <div class="w-100 p-5">
           &nbsp;
         </div>
@@ -65,5 +66,6 @@
     <!-- End Form -->
   </main>
 
+		{{ encore_entry_script_tags('app') }}
 </body>
 </html>

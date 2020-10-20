@@ -2,8 +2,11 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Form\UserType;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class AccountController extends AbstractController
 {
@@ -24,17 +27,26 @@ class AccountController extends AbstractController
     /**
      * @Route("/mon-compte/mes-infos", name="personal_info")
      */
-    public function personal_info()
+    public function personal_info(Request $request): Response
     {
         $title = "Informations personnelles";
 
         $user = $this->getUser();
         
+        $form = $this->createForm(UserType::class, $user);
+        $form->handleRequest($request);
 
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+
+            // return $this->redirectToRoute('author_index');
+        }
 
         return $this->render('account/personal_info.html.twig', [
             'controller_name' => 'AccountController',
             'page_title' => $title,
+            'user' => $user,
+            'form' => $form->createView(),
         ]);
     }
     
