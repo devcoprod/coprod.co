@@ -21,7 +21,7 @@
                       {% if user.avatar %}
                         <img id="avatarImg" class="avatar-img" src="{{ user.avatar }}" alt="Avatar Desc">
                       {% else %}
-                        <img id="avatarImg" class="avatar-img" src="/build/images/160x160/img1.jpg" alt="Avatar Desc">
+                        <img id="avatarImg" class="avatar-img" src="{{ asset('/build/images/160x160/img1.jpg') }}" alt="Avatar Desc">
                       {% endif %}
                       </label>
 

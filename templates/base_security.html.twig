@@ -25,7 +25,7 @@
 
           <!-- Default Logo -->
           <a class="d-flex d-lg-none navbar-brand header-navbar-brand header-navbar-brand-collapsed" href="/" aria-label="Front">
-            <img src="build/images/svg/logos/logo.svg" alt="Logo">
+            <img src="{{ asset('build/images/svg/logos/logo.svg') }}" alt="Logo">
           </a>
           <!-- End Default Logo -->
 
@@ -47,7 +47,7 @@
   <main id="content" role="main">
     <!-- Form -->
     <div class="d-flex align-items-center position-relative vh-lg-100">
-      <div class="col-lg-5 col-xl-4 d-none d-lg-flex align-items-center bg-navy vh-lg-100 px-0" style="background-image: url('/build/images/bg-shapes/bg1.png');">
+      <div class="col-lg-5 col-xl-4 d-none d-lg-flex align-items-center bg-navy vh-lg-100 px-0" style="background-image: url({{ asset('/build/images/bg-shapes/bg1.png') }});">
         <div class="w-100 p-5">
           &nbsp;
         </div>
