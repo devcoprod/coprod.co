@@ -8,7 +8,11 @@
 * Copyright 2019 Htmlstream
 */
 
-export default class HSFileAttach {
+// allan@webcoop.fr
+// suppression attribut default pour l'export
+// devient un export nommé !!
+// 
+export class HSFileAttach {
 	constructor(elem, settings) {
 		this.elem = elem;
 		this.defaults = {
@@ -65,4 +69,5 @@ export default class HSFileAttach {
 			reader.readAsDataURL(el[0].files[0]);
 		}
 	}
-}
+};
+

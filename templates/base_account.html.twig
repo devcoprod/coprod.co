@@ -81,27 +81,25 @@
         
         {% include 'partials/_footer.html.twig' %}
 
-		{{ encore_entry_script_tags('app') }}
-
+        {{ encore_entry_script_tags('app') }}
 		<script src="https://kit.fontawesome.com/bcba0a714a.js" crossorigin="anonymous"></script>
 
 
-		<!-- JS Front -->
-        <script src="/front/js/hs.core.js"></script>
-        
-		<script src="/front/vendor/hs-file-attach.min.js"></script>
-        
+		<!-- JS Front -->      
+		{{ encore_entry_script_tags('init-hscore') }}
+
 		{# <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script> #}
 
         {% block javascripts %}{% endblock %}
 
         <script>
-        $(document).ready( function () {
+        {# $(document).ready( function () {
             // initialization of custom file
             $('.js-file-attach').each(function () {
             var customFile = new HSFileAttach($(this)).init();
             });
-        });
+        }); #}
         </script>
+        {{ encore_entry_script_tags('init-hsvendor') }}
     </body>
 </html>
